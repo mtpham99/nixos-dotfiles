@@ -1,0 +1,27 @@
+global:
+  scrape_interval: "15s"
+  evaluation_interval: "15s"
+  scrape_timeout: "5s"
+
+rule_files:
+  # - "first.rules"
+  # - "second.rules"
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+    - targets:
+      - "prometheus.lan:9090"
+  - job_name: "node"
+    static_configs:
+    - targets:
+      - "ruylopez.lan:9100"
+      - "grunfeld.lan:9100"
+  - job_name: "unbound"
+    static_configs:
+      - targets:
+        - "unbound.lan:9167"
+  - job_name: "jellyfin"
+    static_configs:
+      - targets:
+        - "jellyfin.lan:8096"
