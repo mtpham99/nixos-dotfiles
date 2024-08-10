@@ -15,6 +15,6 @@ datasources:
     access: proxy
     url: http://loki.lan:3100
     jsonData:
-      maxLines: 100000
+      maxLines: 10000
     editable: false
     isDefault: false

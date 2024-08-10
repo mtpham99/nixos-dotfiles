@@ -501,6 +501,17 @@
   };
   services.blueman.enable = true;
 
+  services.snapper = {
+    configs = {
+      mpham = {
+        SUBVOLUME = "/home/mpham";
+        ALLOW_USERS = [ "mpham" ];
+        TIMELINE_CREATE = true;
+        TIMELINE_CLEANUP = true;
+      };
+    };
+  };
+
   # system packages
   environment.systemPackages = with pkgs; [
     # backlight

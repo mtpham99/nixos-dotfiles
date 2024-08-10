@@ -121,6 +121,7 @@
                   mountpoint = "/home/mpham";
                   mountOptions = [ "compress=zstd" "noatime" ];
                 };
+                "/home/mpham/.snapshots" = {};
                 "/home/mpham/downloads" = {};
                 "/home/mpham/git" = {};
                 "/home/mpham/tmp" = {};
