@@ -29,7 +29,7 @@
       "grep" = "grep --color=auto";
       "diff" = "diff --color=auto";
       "ip" = "ip --color=auto";
-      "du" = "du -hs ./* | sort -h";
+      "du" = "du -hs";
 
       # home-manager update
       "home-manager-update" = "home-manager switch --flake \${HOME}/.dotfiles#$(whoami)";
