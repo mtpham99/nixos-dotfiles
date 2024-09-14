@@ -22,6 +22,9 @@
       # home dir cleanup
       CUDA_CACHE_PATH = "\${XDG_CACHE_HOME}/nv";
       DOCKER_CONFIG = "\${XDG_CONFIG_HOME}/docker";
+      IPYTHONDIR = "\${XDG_CONFIG_HOME}/ipython";
+      JUPYTER_CONFIG_DIR = "\${XDG_CONFIG_HOME}/jupyter";
+      PYTHONSTARTUP = "\${XDG_CONFIG_HOME}/pythonrc";  # see below
     };
 
     shellAliases = {
@@ -45,4 +48,32 @@
       "wget" = "wget --hsts-file=\"\${XDG_DATA_HOME}/wget-hsts\"";
     };
   };
+
+  # pythonrc file for moving history ( see above )
+  xdg.configFile."pythonrc".text = ''
+    def is_vanilla() -> bool:
+        import sys
+        return not hasattr(__builtins__, '__IPYTHON__') and 'bpython' not in sys.argv[0]
+
+
+    def setup_history():
+        import os
+        import atexit
+        import readline
+        from pathlib import Path
+
+        if state_home := os.environ.get('XDG_STATE_HOME'):
+            state_home = Path(state_home)
+        else:
+            state_home = Path.home() / '.local' / 'state'
+
+        history: Path = state_home / 'python_history'
+
+        readline.read_history_file(str(history))
+        atexit.register(readline.write_history_file, str(history))
+
+
+    if is_vanilla():
+        setup_history()
+  '';
 }
