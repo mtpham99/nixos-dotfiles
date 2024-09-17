@@ -297,10 +297,17 @@ in
         "float, title:^(Save As)(.*)$"
         "float, title:^(Library)(.*)$"
 
+        # metamask extension popup (brave)
+        # "float, title:^(MetaMask)(.*)$"
+        "float, class:^(brave-nkbihfbeogaeaoehlefnkodbefgpgknn-Default)$"
+        "size 25% 96%, class:^(brave-nkbihfbeogaeaoehlefnkodbefgpgknn-Default)$"
+        "move 74% 2%, class:^(brave-nkbihfbeogaeaoehlefnkodbefgpgknn-Default)$"
+
         # thunar
         "float, class:^(thunar)$"
         "size 80% 80%, class:^(thunar)$"
         "center, class:^(thunar)$"
+
 
         # enable tearing for specific windows
         "immediate, class:^(mpv)$"
