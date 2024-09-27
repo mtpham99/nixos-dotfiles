@@ -299,20 +299,22 @@
     enable = true;
     package = pkgs.samba4Full;
 
-    securityType = "user";
-    invalidUsers = [ "root" ];
     openFirewall = true;
+    settings = {
+      # global settings
+      global = {
+        security = "user";
+        invalidUsers = [ "root" ];
 
-    extraConfig = ''
-      server role = standalone server
-      workgroup = WORKGROUP
-      smb encrypt = desired
-      map to guest = Bad User
-      log level = 3
-      log file = /var/log/samba/%m
-    '';
+        "server role" = "standalone server";
+        workgroup = "WORKGROUP";
+        "smb encrypt" = "desired";
+        "map to guest" = "Bad User";
+        "log level" = 3;
+        "log file" = "/var/log/samba/%m";
+      };
 
-    shares = {
+      # shares
       public = {
         path = "/srv/samba/public";
         browseable = "yes";
