@@ -19,7 +19,7 @@
     };
 
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland/?submodules=1&rev=918d8340afd652b011b937d29d5eea0be08467f5"; # v0.41.2
+      url = "git+https://github.com/hyprwm/Hyprland/?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprlock = {
@@ -34,7 +34,10 @@
       url = "github:hyprwm/hyprpaper";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
+    hyprcursor-phinger = {
+      url = "github:Jappie3/hyprcursor-phinger";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     wezterm = {
       url = "github:wez/wezterm?dir=nix";

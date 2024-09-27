@@ -82,6 +82,13 @@
     ../../modules/nixos/hyprland.nix
     { hyprland.enable = true; }
 
+    # enable tuigreet
+    ../../modules/nixos/tuigreet.nix
+    {
+      tuigreet.enable = true;
+      tuigreet.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+    }
+
     # enable thunar
     ../../modules/nixos/thunar.nix
     { thunar.enable = true; }
@@ -169,6 +176,7 @@
 
   # kernel
   # boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
   chaotic.scx.enable = true;
   chaotic.scx.scheduler = "scx_rusty";
