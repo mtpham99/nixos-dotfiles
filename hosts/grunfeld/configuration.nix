@@ -93,6 +93,13 @@
     ../../modules/nixos/thunar.nix
     { thunar.enable = true; }
 
+    # virt-manager
+    ../../modules/nixos/virt-manager.nix
+    {
+      virt-manager.enable = true;
+      virt-manager.users = [ "mpham" ];
+    }
+
     # jellyfin
     ../../modules/homelab/containers/docker-network.nix
     ../../modules/homelab/containers/media/jellyfin
