@@ -1,6 +1,6 @@
 # default.nix (shells)
 
-{ pkgs, config, ... }:
+{ lib, pkgs, config, ... }:
 
 {
   imports = [
@@ -46,6 +46,13 @@
       # home dir cleanup
       "nvidia-settings" = "nvidia-settings --config=\"\${XDG_CONFIG_HOME}\"/nvidia/settings";
       "wget" = "wget --hsts-file=\"\${XDG_DATA_HOME}/wget-hsts\"";
+    };
+
+    # activation scripts/commands
+    activation = {
+      touchPythonHistoryFile = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        run touch ''${XDG_STATE_HOME}/python_history
+      '';
     };
   };
 
