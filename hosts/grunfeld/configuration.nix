@@ -560,10 +560,6 @@
     sops
     age
 
-    # graphics
-    libva-utils
-    vdpauinfo
-
     # dev
     gh
 
