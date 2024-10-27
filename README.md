@@ -1,44 +1,57 @@
 # My NixOS Dotfiles
 
-Configuration files for my NixOS devices.
+My NixOS configuration files.
+
 
 ## Configurations
 
-- [Ruylopez (Homelab Machine)](https://github.com/mtpham99/nixos-dotfiles/tree/main/hosts/ruylopez/configuration.nix)
+- [Ruylopez (Homelab Machine)](/hosts/ruylopez)
 
-- [Grunfeld (Primary/Laptop)](https://github.com/mtpham99/nixos-dotfiles/tree/main/hosts/grunfeld/configuration.nix)
+- [Grunfeld (Primary/Laptop)](/hosts/grunfeld)
+
 
 ## Modules
 
-- [Dotfiles](https://github.com/mtpham99/nixos-dotfiles/tree/main/modules/home-manager/mpham)
+- [Dotfiles](/modules/home-manager/mpham)
 
-    - See ["home.nix"](https://github.com/mtpham99/nixos-dotfiles/tree/main/modules/home-manager/mpham/home.nix)
+    - See [home-manager configs](/modules/home-manager/mpham)
 
     - Window Manager: [Hyprland](https://github.com/hyprwm/Hyprland)
 
     - Terminal: [Wezterm](https://github.com/wez/wezterm)
 
-- [Homelab](https://github.com/mtpham99/nixos-dotfiles/tree/main/modules/homelab)
+    - Text Editor: [Neovim](https://neovim.io/)
 
-    - See ["ruylopez" configuration](https://github.com/mtpham99/nixos-dotfiles/tree/main/hosts/ruylopez/configuration.nix)
+        - [My Neovim (via nixvim) Config](https://github.com/mtpham99/nixvim-config)
 
-    - [Unbound dns container w/ redis cachedb and metrics exporter](https://github.com/mtpham99/unbound-redis-metrics)
+        - [Nixvim: configure Neovim using Nix](https://github.com/nix-community/nixvim)
 
-        - Implemented [here](https://github.com/mtpham99/nixos-dotfiles/tree/main/modules/homelab/containers/networking/unbound)
+- [Homelab](/modules/homelab)
+
+    - See ["ruylopez" configuration](/hosts/ruylopez)
+
+    - Mostly containers for running DNS, VPNs, Media Server, etc. ([here](/modules/homelab/containers)).
+
+        - Also see [Unbound DNS + Redis Cache DB + Prometheus/Loki Metrics + Dashboard](https://github.com/mtpham99/unbound-redis-metrics)
+
+- [Nixos](/modules/nixos)
+
+    - General modules for systemwide configs (e.g. docker, virt-manager, nvidia, etc.)
+
+
+## Nix-Shells
+
+- [Python-Dev-Shell](/nix-shells/python-dev-shell)
+
+    - Shell for running [JupyterLab](https://jupyter.org/)
+
 
 ## Info/Links
 
-### NixOS
+1. [Disko: Declarative disk partitioning and formatting](https://github.com/nix-community/disko)
 
-- [Disko: Declarative disk partitioning and formatting](https://github.com/nix-community/disko)
+2. [Sops: Secrets management](https://github.com/Mic92/sops-nix)
 
-- [Sops: Secrets management](https://github.com/Mic92/sops-nix)
+3. [NixOS-Anywhere: NixOS deployment/install via SSH](https://github.com/nix-community/nixos-anywhere)
 
-- [NixOS-Anywhere: NixOS deployment/install via SSH](https://github.com/nix-community/nixos-anywhere)
-
-- [Home-manager: User environment configuration](https://nixos.wiki/wiki/Home_Manager)
-
-
-### My Neovim (via nixvim) Config
-
-- [My Neovim Config](https://github.com/mtpham99/nixvim-config)
+4. [Home-manager: User environment configuration](https://nixos.wiki/wiki/Home_Manager)
