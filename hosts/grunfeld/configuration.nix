@@ -172,7 +172,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
   chaotic.scx.enable = true;
-  chaotic.scx.scheduler = "scx_rusty";
+  chaotic.scx.scheduler = "scx_rustland";
 
   # kernel module packages
   # boot.extraModulePackages = with config.boot.kernelPackages; [ ];

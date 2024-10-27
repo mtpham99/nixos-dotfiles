@@ -35,7 +35,7 @@
       "du" = "du -hs";
 
       # home-manager update
-      "home-manager-update" = "home-manager switch --flake \${HOME}/.dotfiles#$(whoami)";
+      "home-manager-update" = "home-manager switch --flake \${HOME}/.dotfiles#$(whoami) --show-trace";
 
       # nixos update (local)
       "nixos-update" = "sudo -k nixos-rebuild switch --flake \${HOME}/.dotfiles#$(hostname) --show-trace";

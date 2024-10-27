@@ -5,7 +5,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -18,39 +17,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland/?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprcursor-phinger = {
-      url = "github:Jappie3/hyprcursor-phinger";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland/?submodules=1";
+    hyprlock.url = "github:hyprwm/hyprlock";
+    hypridle.url = "github:hyprwm/hypridle";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
 
-    wezterm = {
-      url = "github:wez/wezterm?dir=nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    wezterm.url = "github:wez/wezterm?dir=nix";
     nixvim-config.url = "github:mtpham99/nixvim-config";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, chaotic, nixos-hardware, sops-nix, disko, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, chaotic, nixos-hardware, sops-nix, disko, home-manager, ... } @ inputs:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages."${system}";
-    pkgs-stable = nixpkgs-stable.legacyPackages."${system}";
   in
   {
     # host configurations
@@ -60,7 +40,6 @@
         inherit system;
 
         specialArgs = {
-          inherit pkgs-stable;
           inherit inputs;
         };
 
@@ -76,7 +55,6 @@
         inherit system;
 
         specialArgs = {
-          inherit pkgs-stable;
           inherit inputs;
         };
 
@@ -96,7 +74,6 @@
         inherit pkgs;
 
         extraSpecialArgs = {
-          inherit pkgs-stable;
           inherit inputs;
         };
 
