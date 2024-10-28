@@ -257,16 +257,8 @@
   # networking
   networking.hostName = "ruylopez";
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  networking.firewall.allowedTCPPorts = [
-    22 # ssh
-    139 445 # samba
-    5357 # samba-wsdd
-  ];
-  networking.firewall.allowedUDPPorts = [
-    5353 # avahi/mdns
-    137 138 # samba
-    3702 # samba-wsdd
-  ];
+  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [ ];
 
   # ssh
   services.openssh = {

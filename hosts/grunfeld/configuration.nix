@@ -309,12 +309,8 @@
   # networking
   networking.hostName = "grunfeld";
   networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [
-    22 # ssh
-  ];
-  networking.firewall.allowedUDPPorts = [
-    5353 # avahi/mdns
-  ];
+  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedUDPPorts = [ ];
 
   # ssh
   services.openssh = {
