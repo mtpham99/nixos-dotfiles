@@ -125,6 +125,7 @@
                 "/home/mpham/downloads" = {};
                 "/home/mpham/git" = {};
                 "/home/mpham/tmp" = {};
+                "/home/mpham/.local/share/Steam" = {};
               };
             };
           };

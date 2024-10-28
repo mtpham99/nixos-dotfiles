@@ -148,6 +148,10 @@
         };
       };
     }
+
+    # steam
+    ../../modules/nixos/steam.nix
+    { steam.enable = true; }
   ];
 
   # package management
