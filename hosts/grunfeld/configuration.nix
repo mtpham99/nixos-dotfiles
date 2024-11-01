@@ -238,12 +238,11 @@
 
     settings = {
       # cpu governor
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_AC = "powersave";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-      # cpu energy policy
+      CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
 
       # cpu freq (%)
       CPU_MIN_PERF_ON_AC = 0;
@@ -489,10 +488,10 @@
 
     extraConfig.pipewire."92-low-latency" = {
       "context.properties" = {
-        "default.clock.rate" = 48000;
-        "default.clock.quantum" = 32;
-        "default.clock.min-quantum" = 32;
-        "default.clock.max-quantum" = 96;
+        "default.clock.rate" = 48000; # defualt 48000
+        "default.clock.quantum" = 1024; # default 1024
+        "default.clock.min-quantum" = 32; # default 32
+        "default.clock.max-quantum" = 8192; # default 8192
       };
     };
   };

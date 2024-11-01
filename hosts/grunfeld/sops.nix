@@ -6,7 +6,7 @@
   sops = {
     gnupg.home = null;
     gnupg.sshKeyPaths = [];
-    age.keyFile = "/root/sops/age/keys.txt";
+    age.keyFile = "/etc/sops/age/keys.txt";
     age.sshKeyPaths = [];
 
     defaultSopsFormat = "yaml";
