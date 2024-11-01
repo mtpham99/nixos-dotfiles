@@ -5,6 +5,7 @@
 { pkgs ? import <nixpkgs> { } }:
 let
   lib-path = with pkgs; lib.makeLibraryPath [
+    stdenv.cc.cc
     zlib
   ];
 in
