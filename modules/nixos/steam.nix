@@ -1,5 +1,5 @@
 # steam.nix
-# includes gamemoderun and gamescope
+# includes gamemoderun, gamescope, and proton ge
 # basic usage: add "gamescope -H HEIGHT -W WIDTH --fullscreen -- gamemoderun %command%"
 #              to steam game's launch options
 
@@ -29,6 +29,8 @@ in
 
     programs.steam = {
       enable = true;
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
+
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = false;
       localNetworkGameTransfers.openFirewall = false;

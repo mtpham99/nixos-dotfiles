@@ -176,7 +176,7 @@
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
   chaotic.scx.enable = true;
-  chaotic.scx.scheduler = "scx_rustland";
+  chaotic.scx.scheduler = "scx_bpfland";
 
   # kernel module packages
   # boot.extraModulePackages = with config.boot.kernelPackages; [ ];
@@ -230,25 +230,37 @@
   services.thermald.enable = true;
   services.undervolt = {
     enable = true;
-    coreOffset = -125;
-    gpuOffset = -115;
+
+    coreOffset = -130; # mV (cpu/cpu-cache)
+    gpuOffset = -120; # mV (igpu)
   };
   services.tlp = {
     enable = true;
 
     settings = {
+      # info: `tlp-stat -p`, `tlp-stat -g`, `cat /proc/cpuinfo`
+      # intel i7 9750H
+      # cpu: 2.6GHz (base) 4.5GHz (turbo)
+      # igpu: 350MHz (base) 1.15GHz (max dynamic)
+
+      # cpu driver (intel_pstate) mode
+      # intel_pstate (active/passive) vs acpi_cpufreq
+      CPU_DRIVER_OPMODE_ON_AC = "active";
+      CPU_DRIVER_OPMODE_ON_BAT = "active";
+
       # cpu governor
       CPU_SCALING_GOVERNOR_ON_AC = "powersave";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
+      # cpu energy policy
       CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
 
-      # cpu freq (%)
-      CPU_MIN_PERF_ON_AC = 0;
-      CPU_MAX_PERF_ON_AC = 100;
-      CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 20;
+      # cpu freq ( KHz )
+      CPU_SCALING_MIN_FREQ_ON_AC = 800000;
+      CPU_SCALING_MAX_FREQ_ON_AC = 3000000;
+      CPU_SCALING_MIN_FREQ_ON_BAT = 800000;
+      CPU_SCALING_MAX_FREQ_ON_BAT = 2600000;
 
       # cpu turbo boost
       CPU_BOOST_ON_AC = 1;
@@ -258,15 +270,15 @@
       CPU_HWP_DYN_BOOST_ON_AC = 1;
       CPU_HWP_DYN_BOOST_ON_BAT = 0;
 
-      # igpu freq
-      INTEL_GPU_MIN_FREQ_ON_AC = 500;
-      INTEL_GPU_MAX_FREQ_ON_AC = 1135; # max of i7 9750H
-      INTEL_GPU_MIN_FREQ_ON_BAT = 350; # min of i7 9750H
-      INTEL_GPU_MAX_FREQ_ON_BAT = 500;
+      # igpu freq ( MHz )
+      INTEL_GPU_MIN_FREQ_ON_AC = 350;
+      INTEL_GPU_MAX_FREQ_ON_AC = 1150;
+      INTEL_GPU_MIN_FREQ_ON_BAT = 350;
+      INTEL_GPU_MAX_FREQ_ON_BAT = 1150;
 
-      # igpu boost
-      INTEL_GPU_BOOST_FREQ_ON_AC = 1135;
-      INTEL_GPU_BOOST_FREQ_ON_BAT = 500;
+      # igpu boost ( MHz )
+      INTEL_GPU_BOOST_FREQ_ON_AC = 1150;
+      INTEL_GPU_BOOST_FREQ_ON_BAT = 1150;
 
       # battery charging limits
       START_CHARGE_THRESH_BAT0 = 45;
