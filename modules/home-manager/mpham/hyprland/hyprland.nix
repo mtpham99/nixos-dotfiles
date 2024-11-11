@@ -125,12 +125,14 @@ in
           special = false;
         };
 
-        drop_shadow = false;
-        # shadow_range = 15;
-        # shadow_offset = "0, 0";
-        # shadow_render_power = 3;
-        # "col.shadow" = ;
-        # "col.shadow_inactive = ;
+        shadow = {
+          enabled = true;
+          # range = 15;
+          # offset = "0, 0";
+          # render_power = 3;
+          # color = ;
+          # color_inactive = ;
+        };
 
         active_opacity = 1.0;
         inactive_opacity = 1.0;

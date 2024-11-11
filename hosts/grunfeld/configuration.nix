@@ -535,6 +535,9 @@
 
   # system packages
   environment.systemPackages = with pkgs; [
+    # cpu freq scaling
+    linuxKernel.packages.linux_zen.cpupower
+
     # backlight
     brightnessctl
 
