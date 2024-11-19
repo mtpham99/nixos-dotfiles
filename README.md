@@ -41,9 +41,13 @@ My NixOS configuration files.
 
 ## Nix-Shells
 
-- [Python-Dev-Shell](/nix-shells/python-dev-shell)
+- [Python-Dev-Shell](/nix-shells/python-dev-shell.nix)
 
-    - Shell for running [JupyterLab](https://jupyter.org/)
+    - Shell for working on Python projects. Automatically creates Python venv using `requirements.txt` in current directory.
+ 
+- [Python Jupyter Shell](/nix-shells/python-jupyter-shell.nix)
+
+    - Shell for using Python with JupyterLab.
 
 
 ## Info/Links
