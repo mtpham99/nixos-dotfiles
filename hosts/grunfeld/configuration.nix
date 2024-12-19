@@ -182,7 +182,7 @@
   # boot.extraModulePackages = with config.boot.kernelPackages; [ ];
 
   # kernel parameters (boot time)
-  boot.kernelParams = [ 
+  boot.kernelParams = [
     # "quiet"
     # "splash"
     "zswap.enabled=1"
@@ -231,8 +231,8 @@
   services.undervolt = {
     enable = true;
 
-    coreOffset = -130; # mV (cpu/cpu-cache)
-    gpuOffset = -120; # mV (igpu)
+    coreOffset = -120; # mV (cpu/cpu-cache)
+    gpuOffset = -110; # mV (igpu)
   };
   services.tlp = {
     enable = true;
@@ -258,7 +258,7 @@
 
       # cpu freq ( KHz )
       CPU_SCALING_MIN_FREQ_ON_AC = 800000;
-      CPU_SCALING_MAX_FREQ_ON_AC = 3000000;
+      CPU_SCALING_MAX_FREQ_ON_AC = 4500000;
       CPU_SCALING_MIN_FREQ_ON_BAT = 800000;
       CPU_SCALING_MAX_FREQ_ON_BAT = 2600000;
 
@@ -341,7 +341,7 @@
 
   # wireguard
   networking.wg-quick.interfaces = let
-    fn-generate-wg-quick-protonvpn-interface = { 
+    fn-generate-wg-quick-protonvpn-interface = {
       interface-name,
       secret-key-path,
       public-key,
@@ -395,7 +395,7 @@
 
       autostart = autostart;
     };
-  in 
+  in
   {
     # proton vpn (chicago 75)
     # moderate-nat_nat-pmp_vpn-accel_mal-ads-track_Chicago75
@@ -630,7 +630,7 @@
     };
   };
 
-  # user 
+  # user
   users.users.mpham = {
     description = "Matthew Pham";
     isNormalUser = true;
