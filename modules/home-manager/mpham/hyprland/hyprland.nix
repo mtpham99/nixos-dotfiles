@@ -285,8 +285,8 @@ in
       bindl = [
         # lid switch
         ", switch:Lid Switch, exec, sh \${HOME}/.local/bin/lock.sh"
-        ", switch:on:Lid Switch, exec, hyprctl keyword monitor \", disable\""
-        ", switch:off:Lid Switch, exec, hyprctl keyword monitor \", preferred, auto, 2\""
+        # ", switch:on:Lid Switch, exec, hyprctl keyword monitor \", disable\""
+        # ", switch:off:Lid Switch, exec, hyprctl keyword monitor \", preferred, auto, 2\""
       ];
 
       # window rules
