@@ -3,10 +3,10 @@
 { lib, pkgs, config, ... }:
 let
   colors = import ../theme/colors.nix { inherit lib; };
-in 
+in
 {
-  home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Iosevka" ];})
+  home.packages = [
+    pkgs.nerd-fonts.iosevka
   ];
 
   services.dunst = {

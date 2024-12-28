@@ -1,11 +1,11 @@
 # default.nix (rofi)
 
 { pkgs, config, inputs, ... }:
- 
+
 {
-  home.packages = with pkgs; [
-    papirus-icon-theme # icon theme
-    (nerdfonts.override { fonts = [ "Iosevka" ]; }) # font
+  home.packages = [
+    pkgs.papirus-icon-theme
+    pkgs.nerd-fonts.iosevka
   ];
 
   programs.rofi = {

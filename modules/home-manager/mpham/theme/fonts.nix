@@ -1,12 +1,11 @@
 # fonts.nix
 
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Iosevka" "Noto" ];})
-    # noto-fonts-cjk
-    # noto-fonts-emoji
+  home.packages = [
+    pkgs.nerd-fonts.iosevka
+    pkgs.nerd-fonts.noto
   ];
 
   fonts.fontconfig = {
@@ -22,7 +21,14 @@
 
   gtk.font = {
     name = "NotoSans Nerd Font";
-    package = pkgs.nerdfonts.override { fonts = [ "Noto" ]; };
+    package = pkgs.nerd-fonts.noto;
     size = 12;
+  };
+
+  home.activation = {
+    # sometimes required when updating fonts, so automating here
+    font-cache-refresh = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      ${pkgs.fontconfig}/bin/fc-cache -r
+    '';
   };
 }

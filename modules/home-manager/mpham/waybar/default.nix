@@ -9,10 +9,10 @@ in
     ../scripts/volume.nix
   ];
 
-  home.packages = with pkgs; [
-    pavucontrol
-    blueman
-    (nerdfonts.override { fonts = [ "Iosevka" ];})
+  home.packages = [
+    pkgs.pavucontrol
+    pkgs.blueman
+    pkgs.nerd-fonts.iosevka
   ];
 
   programs.waybar = {

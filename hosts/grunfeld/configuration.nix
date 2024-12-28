@@ -175,8 +175,10 @@
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
-  chaotic.scx.enable = true;
-  chaotic.scx.scheduler = "scx_bpfland";
+  services.scx = {
+    enable = true;
+    scheduler = "scx_bpfland";
+  };
 
   # kernel module packages
   # boot.extraModulePackages = with config.boot.kernelPackages; [ ];
