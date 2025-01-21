@@ -48,6 +48,8 @@ My NixOS configuration files.
 
 - [C/C++ Shell](/nix-shells/cpp-shell.nix): Shell for c/c++ devlopement. Includes common libs and benchmarking/optimization tools.
 
+- [C++23 ImportStd Shell](https://github.com/mtpham99/nixshell-cpp23-stdmodule): Shell for c++ development using cmake + ninja + clang w/ libc++ build tools with support for c++23 std module `import std;`.
+
 ## Info/Links
 
 1. [Disko: Declarative disk partitioning and formatting](https://github.com/nix-community/disko)

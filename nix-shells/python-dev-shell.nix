@@ -30,7 +30,7 @@ pkgs.mkShell {
   '';
 
   # command ran after sourcing virtual env
-    postShellHook = ''
-      export LD_LIBRARY_PATH=''${LD_LIBRARY_PATH}:${lib-path}
-    '';
+  postShellHook = ''
+    export LD_LIBRARY_PATH=''${LD_LIBRARY_PATH}:${lib-path}
+  '';
 }
