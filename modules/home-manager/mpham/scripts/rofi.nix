@@ -19,7 +19,7 @@
       mode=$1
       rofi \
         -modes "drun,calc,emoji" -show "$mode" \
-        -terse -no-show-match -no-sort -calc-command-history -calc-command "echo -n '{result}' | wl-copy"
+        -no-show-match -no-sort -calc-command-history -calc-command "echo -n '{result}' | wl-copy"
     }
 
     clipboard() {
