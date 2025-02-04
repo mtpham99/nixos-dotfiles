@@ -219,7 +219,7 @@
   # kernel
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelPackages = pkgs.linuxPackages_cachyos-server;
-  
+
   # kernel sysctls
   boot.kernel.sysctl = {
     "vm.overcommit_memory" = 1;
@@ -231,7 +231,7 @@
   # boot.extraModulePackages = with config.boot.kernelPackages; [ ];
 
   # kernel parameters (boot time)
-  boot.kernelParams = [ 
+  boot.kernelParams = [
     # "quiet"
     # "splash"
     "zswap.enabled=1"
@@ -426,7 +426,6 @@
   services.locate = {
     enable = true;
     package = pkgs.mlocate;
-    localuser = null;
     interval = "hourly";
     pruneNames = [ ".snapshots" ]; # ignore snapshot directories
   };

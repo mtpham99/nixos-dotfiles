@@ -582,7 +582,6 @@
   services.locate = {
     enable = true;
     package = pkgs.mlocate;
-    localuser = null;
     interval = "hourly";
     pruneNames = [ ".snapshots" ]; # ignore snapshot directories
   };
