@@ -29,7 +29,7 @@
       };
 
       # gluetun container secrets
-      gluetun-protonvpn-chicago75-docker-env-secrets = {
+      gluetun-protonvpn-chicago117-docker-env-secrets = {
         sopsFile = ../../sops-nix/secrets/homelab.yaml;
       };
       gluetun-protonvpn-swiss125-docker-env-secrets = {

@@ -71,7 +71,7 @@
     {
       shadowsocks-rust.enable = true;
       shadowsocks-rust.client-configs = [
-        "gluetun-protonvpn-chicago75"
+        "gluetun-protonvpn-chicago117"
         "gluetun-protonvpn-swiss125"
         "gluetun-protonvpn-uk215"
         "gluetun-protonvpn-usiceland1"
@@ -399,13 +399,13 @@
     };
   in
   {
-    # proton vpn (chicago 75)
-    # moderate-nat_nat-pmp_vpn-accel_mal-ads-track_Chicago75
+    # proton vpn (chicago 117)
+    # moderate-nat_nat-pmp_vpn-accel_mal-ads-track_Chicago117
     proton_chicago = fn-generate-wg-quick-protonvpn-interface {
       interface-name = "proton_chicago";
-      secret-key-path = config.sops.secrets.wg-protonvpn-chicago75-sk.path;
-      public-key = "qT0lxDVbWEIyrL2A40FfCXRlUALvnryRz2aQdD6gUDs=";
-      endpoint = "89.187.180.40:51820";
+      secret-key-path = config.sops.secrets.wg-protonvpn-chicago117-sk.path;
+      public-key = "JpTNgqGxonmaS/1dNbN35JpaZCd+kPw7eMwslJmgRXU=";
+      endpoint = "154.47.25.193:51820";
       autostart = false;
     };
 

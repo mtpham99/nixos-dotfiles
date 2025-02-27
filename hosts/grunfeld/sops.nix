@@ -25,15 +25,15 @@
       samba-ruylopez-admin-creds.sopsFile = ../../sops-nix/secrets/common.yaml;
 
       # wireguard secret/private keys
-      wg-protonvpn-chicago75-sk.sopsFile = ../../sops-nix/secrets/wireguard.yaml;
+      wg-protonvpn-chicago117-sk.sopsFile = ../../sops-nix/secrets/wireguard.yaml;
       wg-protonvpn-ch125-sk.sopsFile = ../../sops-nix/secrets/wireguard.yaml;
       wg-protonvpn-uk215-sk.sopsFile = ../../sops-nix/secrets/wireguard.yaml;
       wg-protonvpn-us_iceland1-sk.sopsFile = ../../sops-nix/secrets/wireguard.yaml;
 
       # homelab vpns shadowsocks proxies
-      gluetun-protonvpn-chicago75-socks-json = {
+      gluetun-protonvpn-chicago117-socks-json = {
         sopsFile = ../../sops-nix/secrets/homelab.yaml;
-        path = "/etc/shadowsocks-rust/gluetun-protonvpn-chicago75.json";
+        path = "/etc/shadowsocks-rust/gluetun-protonvpn-chicago117.json";
       };
       gluetun-protonvpn-swiss125-socks-json = {
         sopsFile = ../../sops-nix/secrets/homelab.yaml;

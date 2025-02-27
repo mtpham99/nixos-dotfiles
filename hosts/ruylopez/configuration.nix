@@ -113,10 +113,10 @@
           enable = true;
 
           containers = {
-            gluetun-protonvpn-chicago75 = {
+            gluetun-protonvpn-chicago117 = {
               env-files = [
-                "${config.homelab.containers.gluetun.config-pkg}/protonvpn-chicago75.env"
-                config.sops.secrets.gluetun-protonvpn-chicago75-docker-env-secrets.path
+                "${config.homelab.containers.gluetun.config-pkg}/protonvpn-chicago117.env"
+                config.sops.secrets.gluetun-protonvpn-chicago117-docker-env-secrets.path
               ];
               network = docker-network-name;
               ip = protonvpn-chicago-ip;
@@ -165,7 +165,7 @@
           enable = true;
           container-name = "deluge";
 
-          network-container = "gluetun-protonvpn-chicago75";
+          network-container = "gluetun-protonvpn-chicago117";
         };
         grafana = {
           enable = true;

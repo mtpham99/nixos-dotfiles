@@ -39,15 +39,15 @@
     ./latex
   ];
 
-  programs.home-manager.enable = true; 
+  programs.home-manager.enable = true;
   home = {
     username = "mpham";
-    homeDirectory = "/home/mpham"; 
+    homeDirectory = "/home/mpham";
 
     packages = with pkgs; [
       # documents
       libreoffice
-      okular
+      kdePackages.okular
 
       # image/video
       yt-dlp
