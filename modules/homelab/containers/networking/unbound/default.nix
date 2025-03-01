@@ -5,10 +5,10 @@ let
   cfg = config.homelab.containers.unbound;
 
   # unbound-redis-metrics docker image file
-  unbound-redis-metrics-tag = "unbound1.20.0-redis7.4.0";
+  unbound-redis-metrics-tag = "unbound1.22.0-redis7.4.2";
   unbound-redis-metrics-img = builtins.fetchurl {
-    url = "https://github.com/mtpham99/unbound-redis-metrics/releases/download/v0.1.0/${unbound-redis-metrics-tag}.tar.gz";
-    sha256 = "1jpf00ljw7ccfp004xc97lyd8li53vvsqs81g2lrxyn9k51398ik";
+    url = "https://github.com/mtpham99/unbound-redis-metrics/releases/download/${unbound-redis-metrics-tag}/${unbound-redis-metrics-tag}.tar.gz";
+    sha256 = "sha256:1z182bzr6lnmkr91ans621n3a30zcig8vhhc79fs502vcp5gm19y";
   };
 
   # volumes
