@@ -4,6 +4,8 @@
 let
   cfg = config.homelab.containers.grafana;
 
+  grafana-version = "11.3.4";
+
   # volumes
   volume-config = "/srv/grafana/config";
   volume-data = "/srv/grafana/data";
@@ -76,7 +78,7 @@ in
     '';
 
     virtualisation.oci-containers.containers."${cfg.container-name}" = {
-      image = "grafana/grafana-oss:latest";
+      image = "grafana/grafana-oss:${grafana-version}";
       volumes = [
         "${volume-config}:/etc/grafana"
         "${volume-data}:/var/lib/grafana"

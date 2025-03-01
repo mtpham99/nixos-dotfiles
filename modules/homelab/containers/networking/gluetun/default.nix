@@ -4,6 +4,8 @@
 let
   cfg = config.homelab.containers.gluetun;
 
+  gluetun-version = "3.40";
+
   # add config files to nix store
   gluetun-configs-pkg = pkgs.runCommand "homelab-gluetun-configs" {
     buildInputs = [ pkgs.coreutils ];
@@ -14,7 +16,7 @@ let
 
   # helper to create `virtualisation.oci-containers.containers.<name>` container config
   createContainerConfig = container: {
-    image = "qmcgaw/gluetun:latest";
+    image = "qmcgaw/gluetun:v${gluetun-version}";
     environmentFiles = container.env-files;
     extraOptions = [
       "--network=${container.network}"

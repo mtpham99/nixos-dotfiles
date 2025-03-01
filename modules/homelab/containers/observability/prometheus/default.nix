@@ -4,6 +4,8 @@
 let
   cfg = config.homelab.containers.prometheus;
 
+  prometheus-version = "3.2.1";
+
   # volumes
   volume-config = "/srv/prometheus/config";
   volume-data = "/srv/prometheus/data";
@@ -63,7 +65,7 @@ in
     '';
 
     virtualisation.oci-containers.containers."${cfg.container-name}" = {
-      image = "prom/prometheus:latest";
+      image = "prom/prometheus:v${prometheus-version}";
       volumes = [
         "${volume-config}:/etc/prometheus"
         "${volume-data}:/prometheus"

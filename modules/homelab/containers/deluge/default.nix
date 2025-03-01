@@ -4,6 +4,8 @@
 let
   cfg = config.homelab.containers.deluge;
 
+  deluge-version = "2.1.1";
+
   # volumes
   volume-config = "/srv/deluge/config";
   volume-downloads = "/srv/deluge/downloads";
@@ -32,7 +34,7 @@ in
     '';
 
     virtualisation.oci-containers.containers."${cfg.container-name}" = {
-      image = "linuxserver/deluge:latest";
+      image = "linuxserver/deluge:${deluge-version}";
       volumes = [
         "${volume-config}:/config"
         "${volume-downloads}:/downloads"

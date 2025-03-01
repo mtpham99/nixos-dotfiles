@@ -4,6 +4,8 @@
 let
   cfg = config.homelab.containers.loki;
 
+  loki-version = "3.4";
+
   # volumes
   volume-config = "/srv/loki/config";
   volume-data = "/srv/loki/data";
@@ -62,7 +64,7 @@ in
     '';
 
     virtualisation.oci-containers.containers."${cfg.container-name}" = {
-      image = "grafana/loki:latest";
+      image = "grafana/loki:${loki-version}";
       volumes = [
         "${volume-config}:/etc/loki"
         "${volume-data}:/loki"

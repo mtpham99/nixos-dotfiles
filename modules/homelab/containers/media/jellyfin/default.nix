@@ -4,6 +4,8 @@
 let
   cfg = config.homelab.containers.jellyfin;
 
+  jellyfin-version = "10.10";
+
   # volumes
   volume-media = "/srv/jellyfin/media";
   volume-config = "/srv/jellyfin/config";
@@ -50,7 +52,7 @@ in
     '';
 
     virtualisation.oci-containers.containers."${cfg.container-name}" = {
-      image = "jellyfin/jellyfin:latest";
+      image = "jellyfin/jellyfin:${jellyfin-version}";
       volumes = [
         "${volume-media}:/media"
         "${volume-config}:/config"

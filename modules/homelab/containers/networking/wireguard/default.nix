@@ -4,6 +4,8 @@
 let
   cfg = config.homelab.containers.wireguard;
 
+  wireguard-version = "1.0.20210914";
+
   # volumes
   volume = "/srv/wireguard";
 
@@ -14,7 +16,7 @@ let
   } ''
     cp -r $src/. $out/
   '';
-in 
+in
 {
   imports = [
     ../../docker-network.nix # add route for container ip via bridge
@@ -59,7 +61,7 @@ in
     '';
 
     virtualisation.oci-containers.containers."${cfg.container-name}" = {
-      image = "linuxserver/wireguard:latest";
+      image = "linuxserver/wireguard:${wireguard-version}";
       volumes = [ "${volume}:/config" ];
       environment = { PEERDNS = cfg.dns; };
       environmentFiles = [ "${wireguard-configs-pkg}/ruylopez-wg.env" ];

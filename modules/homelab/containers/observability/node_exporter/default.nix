@@ -3,6 +3,8 @@
 { lib,  config, ... }:
 let
   cfg = config.homelab.containers.node_exporter;
+
+  node_exporter-version = "1.9.0";
 in
 {
   options.homelab.containers.node_exporter = {
@@ -16,7 +18,7 @@ in
 
   config = lib.mkIf cfg.enable {
     virtualisation.oci-containers.containers."${cfg.container-name}" = {
-      image = "quay.io/prometheus/node-exporter:latest";
+      image = "quay.io/prometheus/node-exporter:v${node_exporter-version}";
       volumes = [
         "/:/host:ro,rslave"
         "/var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket:ro"
