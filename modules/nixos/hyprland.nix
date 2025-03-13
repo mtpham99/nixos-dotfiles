@@ -1,6 +1,6 @@
 # hyprland.nix
 
-{ lib, pkgs, config, inputs, ... }:
+{ lib, pkgs, config, ... }:
 let
   cfg = config.hyprland;
 in
@@ -25,7 +25,7 @@ in
 
     programs.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      package = pkgs.hyprland; # inputs.hyprland.packages."${pkgs.system}".hyprland;
     };
   };
 }

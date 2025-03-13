@@ -1,16 +1,16 @@
 # hyprlock.nix
 
-{ lib, pkgs, config, inputs, ... }:
+{ lib, pkgs, config, ... }:
 let
   colors = import ../theme/colors.nix { inherit lib; };
-in 
+in
 {
   # symlink lockscreen wallpaper
   xdg.configFile."hypr/hyprlock-background.png".source = ../../../../wallpapers/fish-teal-magenta_3840x2160.png;
 
   programs.hyprlock = {
     enable = true;
-    package = inputs.hyprlock.packages."${pkgs.system}".hyprlock;
+    package = pkgs.hyprlock; # inputs.hyprlock.packages."${pkgs.system}".hyprlock;
 
     settings = {
       general = {

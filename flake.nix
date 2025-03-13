@@ -17,13 +17,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprlock.url = "github:hyprwm/hyprlock";
-    hypridle.url = "github:hyprwm/hypridle";
-    hyprpaper.url = "github:hyprwm/hyprpaper";
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprlock.url = "github:hyprwm/hyprlock";
+    # hypridle.url = "github:hyprwm/hypridle";
+    # hyprpaper.url = "github:hyprwm/hyprpaper";
     hyprcursor-phinger.url = "github:Jappie3/hyprcursor-phinger";
 
-    wezterm.url = "github:wez/wezterm?dir=nix";
+    # wezterm.url = "github:wez/wezterm?dir=nix";
     nixvim-config.url = "github:mtpham99/nixvim-config";
   };
 

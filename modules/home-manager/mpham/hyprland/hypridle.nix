@@ -1,6 +1,6 @@
 # hypridle.nix
 
-{ pkgs, config, inputs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [
@@ -13,7 +13,7 @@
 
   services.hypridle = {
     enable = true;
-    package = inputs.hypridle.packages."${pkgs.system}".hypridle;
+    package = pkgs.hypridle; # inputs.hypridle.packages."${pkgs.system}".hypridle;
 
     settings = {
       general = {

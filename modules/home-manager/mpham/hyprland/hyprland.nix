@@ -1,6 +1,6 @@
 # default.nix (hyprland)
 
-{ lib, pkgs, config, inputs, ... }:
+{ lib, pkgs, config, ... }:
 let
   colors = import ../theme/colors.nix { inherit lib; };
 in
@@ -25,7 +25,7 @@ in
 
   config.wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+    package = pkgs.hyprland; # inputs.hyprland.packages."${pkgs.system}".hyprland;
 
     settings = {
       # monitors
