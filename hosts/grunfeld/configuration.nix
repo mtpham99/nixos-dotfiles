@@ -118,6 +118,8 @@
 
       homelab.containers = let
         docker-network-name = "hlab-ipvlan";
+
+        jellyfin-ip = "10.10.10.1";
       in {
         docker-network = {
           enable = true;
@@ -139,7 +141,7 @@
           container-name = "jellyfin";
 
           network = docker-network-name;
-          ip = "10.10.10.1";
+          ip = jellyfin-ip;
           add-to-bridge = true;
         };
         node_exporter = {

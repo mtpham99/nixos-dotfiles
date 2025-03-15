@@ -51,6 +51,7 @@
     ../../modules/homelab/containers/observability/grafana
     ../../modules/homelab/containers/observability/loki
     ../../modules/homelab/containers/observability/node_exporter
+    ../../modules/homelab/containers/media/komga
     {
       homelab.containers = let
         docker-network-name = "hlab-mvlan";
@@ -69,6 +70,7 @@
         protonvpn-chicago-ip = "10.10.1.10";
         deluge-ip = protonvpn-chicago-ip;
         jellyfin-ip = "10.10.10.1";
+        komga-ip = "10.10.10.2";
       in {
         docker-network = {
           enable = true;
@@ -194,6 +196,14 @@
         node_exporter = {
           enable = true;
           container-name = "node_exporter";
+        };
+        komga = {
+          enable = true;
+          container-name = "komga";
+
+          network = docker-network-name;
+          ip = komga-ip;
+          add-to-bridge = true;
         };
       };
     }
