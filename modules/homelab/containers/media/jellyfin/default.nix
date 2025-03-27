@@ -8,6 +8,7 @@ let
 
   # volumes
   volume-media = "/srv/jellyfin/media";
+  volume-samba-media = "/mnt/samba/ruylopez/admin/media"; # TODO: custom option
   volume-config = "/srv/jellyfin/config";
   volume-cache = "/srv/jellyfin/cache";
 in
@@ -47,6 +48,7 @@ in
     system.activationScripts."homelab-jellyfin-volume-setup".text = ''
       # make sure volume path exists
       mkdir -p ${volume-media}
+      mkdir -p ${volume-samba-media}
       mkdir -p ${volume-config}
       mkdir -p ${volume-cache}
     '';
@@ -55,6 +57,7 @@ in
       image = "jellyfin/jellyfin:${jellyfin-version}";
       volumes = [
         "${volume-media}:/media"
+        "${volume-samba-media}:/samba/media"
         "${volume-config}:/config"
         "${volume-cache}:/cache"
       ];
