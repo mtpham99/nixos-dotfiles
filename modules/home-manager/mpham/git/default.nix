@@ -12,6 +12,7 @@
     signing = {
       key = null;
       signByDefault = true;
+      format = "openpgp";
     };
 
     extraConfig = {
