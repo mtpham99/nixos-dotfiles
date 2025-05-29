@@ -25,3 +25,7 @@ scrape_configs:
     static_configs:
       - targets:
         - "jellyfin.lan:8096"
+  - job_name: "github_traffic"
+    static_configs:
+      - targets:
+        - "github_traffic.lan:8001"

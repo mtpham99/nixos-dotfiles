@@ -1,6 +1,6 @@
 # default.nix (node_exporter)
 
-{ lib,  config, ... }:
+{ lib, config, ... }:
 let
   cfg = config.homelab.containers.node_exporter;
 

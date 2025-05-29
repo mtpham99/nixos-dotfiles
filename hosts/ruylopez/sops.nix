@@ -53,6 +53,11 @@
         owner = "grafana"; # 472
         mode = "0440";
       };
+
+      # github traffic (github token env file)
+      github-traffic-mtpham99-token = {
+        sopsFile = ../../sops-nix/secrets/homelab.yaml;
+      };
     };
   };
 
