@@ -58,6 +58,11 @@
       github-traffic-mtpham99-token = {
         sopsFile = ../../sops-nix/secrets/homelab.yaml;
       };
+
+      # database/postgres creds
+      postgres-pt4-creds-env = {
+        sopsFile = ../../sops-nix/secrets/homelab.yaml;
+      };
     };
   };
 

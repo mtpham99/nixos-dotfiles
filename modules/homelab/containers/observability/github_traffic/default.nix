@@ -5,7 +5,7 @@ let
   cfg = config.homelab.containers.github_traffic;
 
   # add config files to nix store
-  github-traffic-pkg = pkgs.runCommand "" {
+  github-traffic-configs-pkg = pkgs.runCommand "" {
     buildInputs = [ pkgs.coreutils ];
     src = ./configs;
   } ''
@@ -50,7 +50,7 @@ in
         "--ip=${cfg.ip}"
       ];
       environmentFiles = [
-        "${github-traffic-pkg}/mtpham99.env"
+        "${github-traffic-configs-pkg}/mtpham99.env"
         config.sops.secrets.github-traffic-mtpham99-token.path # GITHUB_TOKEN=...
       ];
     };

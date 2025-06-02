@@ -53,6 +53,7 @@
     ../../modules/homelab/containers/observability/node_exporter
     ../../modules/homelab/containers/observability/github_traffic
     ../../modules/homelab/containers/media/komga
+    ../../modules/homelab/containers/postgres/pt4
     {
       homelab.containers = let
         docker-network-name = "hlab-mvlan";
@@ -71,8 +72,11 @@
 
         protonvpn-chicago-ip = "10.10.1.10";
         deluge-ip = protonvpn-chicago-ip;
+
         jellyfin-ip = "10.10.10.1";
         komga-ip = "10.10.10.2";
+
+        postgres-pt4-ip = "10.10.3.1";
       in {
         docker-network = {
           enable = true;
@@ -96,6 +100,8 @@
           ip = "${unbound-ip}";
           add-to-bridge = true;
 
+          loki-address = "loki.lan:3100";
+
           custom-config = ''
             # A Records
             local-data: "ruylopez.lan. A ${ruylopez-ip}"
@@ -111,8 +117,9 @@
 
             local-data: "jellyfin.lan. A ${jellyfin-ip}"
             local-data: "deluge.lan. A ${deluge-ip}"
+
+            local-data: "postgres_pt4.lan. A ${postgres-pt4-ip}"
           '';
-          loki-address = "loki.lan:3100";
         };
         gluetun = {
           enable = true;
@@ -215,6 +222,18 @@
           network = docker-network-name;
           ip = komga-ip;
           add-to-bridge = true;
+        };
+        postgres = let
+          inherit docker-network-name;
+        in
+        {
+          pt4 = {
+            enable = true;
+            container-name = "postgres-pt4";
+            network = docker-network-name;
+            ip = postgres-pt4-ip;
+            add-to-bridge = true;
+          };
         };
       };
     }
