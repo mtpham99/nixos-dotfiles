@@ -52,6 +52,7 @@
     ../../modules/homelab/containers/observability/loki
     ../../modules/homelab/containers/observability/node_exporter
     ../../modules/homelab/containers/observability/github_traffic
+    ../../modules/homelab/containers/observability/github_exporter
     ../../modules/homelab/containers/media/komga
     ../../modules/homelab/containers/postgres/pt4
     {
@@ -69,6 +70,7 @@
         prometheus-ip = "10.10.2.2";
         loki-ip = "10.10.2.3";
         github-traffic-ip = "10.10.2.4";
+        github-exporter-ip = "10.10.2.5";
 
         protonvpn-chicago-ip = "10.10.1.10";
         deluge-ip = protonvpn-chicago-ip;
@@ -114,6 +116,7 @@
             local-data: "prometheus.lan. A ${prometheus-ip}"
             local-data: "loki.lan. A ${loki-ip}"
             local-data: "github_traffic.lan. A ${github-traffic-ip}"
+            local-data: "github_exporter.lan. A ${github-exporter-ip}"
 
             local-data: "jellyfin.lan. A ${jellyfin-ip}"
             local-data: "deluge.lan. A ${deluge-ip}"
@@ -213,6 +216,14 @@
 
           network = docker-network-name;
           ip = github-traffic-ip;
+          add-to-bridge = true;
+        };
+        github_exporter = {
+          enable = true;
+          container-name = "github_exporter";
+
+          network = docker-network-name;
+          ip = github-exporter-ip;
           add-to-bridge = true;
         };
         komga = {

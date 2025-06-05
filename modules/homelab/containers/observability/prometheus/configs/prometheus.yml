@@ -29,3 +29,7 @@ scrape_configs:
     static_configs:
       - targets:
         - "github_traffic.lan:8001"
+  - job_name: "github_exporter"
+    static_configs:
+      - targets:
+        - "github_exporter.lan:9171"

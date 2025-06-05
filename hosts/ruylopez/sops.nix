@@ -54,9 +54,9 @@
         mode = "0440";
       };
 
-      # github traffic (github token env file)
-      github-traffic-mtpham99-token = {
-        sopsFile = ../../sops-nix/secrets/homelab.yaml;
+      # github (token env file)
+      github-mtpham99-token = {
+        sopsFile = ../../sops-nix/secrets/homelab.yaml; # GITHUB_TOKEN=...
       };
 
       # database/postgres creds

@@ -1,22 +1,22 @@
-# default.nix (github_traffic)
+# default.nix (github_exporter)
 
 { lib, pkgs, config, ... }:
 let
-  cfg = config.homelab.containers.github_traffic;
+  cfg = config.homelab.containers.github_exporter;
 
   # add config files to nix store
-  github-traffic-configs-pkg = pkgs.runCommand "" {
+  github-exporter-configs-pkg = pkgs.runCommand "" {
     buildInputs = [ pkgs.coreutils ];
     src = ./configs;
   } ''
     cp -r $src/. $out/
   '';
 
-  github_traffic-version = "0.0.4";
+  github_exporter-version = "1.3.1";
 in
 {
-  options.homelab.containers.github_traffic = {
-    enable = lib.mkEnableOption "enable github traffic container";
+  options.homelab.containers.github_exporter = {
+    enable = lib.mkEnableOption "enable github exporter container";
 
     container-name = lib.mkOption {
       type = lib.types.str;
@@ -43,13 +43,13 @@ in
     homelab.containers.docker-network.bridge-routes = lib.mkIf (cfg.add-to-bridge && config.homelab.containers.docker-network.enable-bridge) [ cfg.ip ];
 
     virtualisation.oci-containers.containers."${cfg.container-name}" = {
-      image = "ghcr.io/grafana/github-traffic:v${github_traffic-version}";
+      image = "docker.io/githubexporter/github-exporter:${github_exporter-version}";
       extraOptions = [
         "--network=${cfg.network}"
         "--ip=${cfg.ip}"
       ];
       environmentFiles = [
-        "${github-traffic-configs-pkg}/mtpham99.env"
+        "${github-exporter-configs-pkg}/mtpham99.env"
         config.sops.secrets.github-mtpham99-token.path # GITHUB_TOKEN=...
       ];
     };
