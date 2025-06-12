@@ -4,7 +4,7 @@
 let
   cfg = config.homelab.containers.prometheus;
 
-  prometheus-version = "3.2.1";
+  prometheus-version = "3.4.1";
 
   # volumes
   volume-config = "/srv/prometheus/config";

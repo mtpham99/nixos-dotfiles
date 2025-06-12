@@ -4,7 +4,7 @@
 let
   cfg = config.homelab.containers.grafana;
 
-  grafana-version = "11.3.4";
+  grafana-version = "12.0.1";
 
   # volumes
   volume-config = "/srv/grafana/config";

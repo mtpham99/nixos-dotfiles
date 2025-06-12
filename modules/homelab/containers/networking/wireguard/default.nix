@@ -4,7 +4,7 @@
 let
   cfg = config.homelab.containers.wireguard;
 
-  wireguard-version = "1.0.20210914";
+  wireguard-version = "1.0.20210914-r4-ls77";
 
   # volumes
   volume = "/srv/wireguard";

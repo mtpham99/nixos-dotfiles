@@ -4,7 +4,7 @@
 let
   cfg = config.homelab.containers.komga;
 
-  komga-version = "1.21.2";
+  komga-version = "1.21.3";
 
   # volumes
   volume-config = "/srv/komga/config";

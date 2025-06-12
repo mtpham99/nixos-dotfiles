@@ -4,7 +4,7 @@
 let
   cfg = config.homelab.containers.loki;
 
-  loki-version = "3.4";
+  loki-version = "3.4.4";
 
   # volumes
   volume-config = "/srv/loki/config";
