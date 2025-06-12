@@ -4,7 +4,7 @@
 let
   cfg = config.homelab.containers.node_exporter;
 
-  node_exporter-version = "1.9.0";
+  node_exporter-version = "1.9.1";
 in
 {
   options.homelab.containers.node_exporter = {

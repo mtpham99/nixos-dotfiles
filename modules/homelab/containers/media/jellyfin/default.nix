@@ -4,7 +4,7 @@
 let
   cfg = config.homelab.containers.jellyfin;
 
-  jellyfin-version = "10.10";
+  jellyfin-version = "10.10.7";
 
   # volumes
   volume-media = "/srv/jellyfin/media";

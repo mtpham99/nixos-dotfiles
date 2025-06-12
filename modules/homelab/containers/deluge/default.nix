@@ -4,7 +4,7 @@
 let
   cfg = config.homelab.containers.deluge;
 
-  deluge-version = "2.1.1";
+  deluge-version = "2.2.0";
 
   # volumes
   volume-config = "/srv/deluge/config";
