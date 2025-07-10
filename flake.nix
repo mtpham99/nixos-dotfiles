@@ -24,7 +24,7 @@
   outputs = { self, nixpkgs, chaotic, nixos-hardware, sops-nix, disko, home-manager, ... } @ inputs:
   let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages."${system}";
+    pkgs = import nixpkgs { inherit system; };
   in
   {
     # host configurations

@@ -57,7 +57,7 @@ in
         };
         rootless = lib.mkIf cfg.rootless {
           enable = true;
-          setSocketVariable = true; 
+          setSocketVariable = true;
         };
       };
 
@@ -76,6 +76,11 @@ in
     };
 
     hardware.nvidia-container-toolkit.enable = cfg.use-nvidia; # && config.nvidia.enable
+
+    # see: https://discourse.nixos.org/t/nvidia-ctk-shows-gpu-but-podman-doesnt-find-it-for-passthrough/65869
+    environment.etc = lib.mkIf (cfg.use-nvidia) {
+      "cdi/nvidia-container-toolkit.json".source = "/run/cdi/nvidia-container-toolkit.json";
+    };
 
     environment.systemPackages = with pkgs; [
       docker-compose

@@ -111,7 +111,6 @@ in
     services.xserver.videoDrivers = [ "nvidia" ];
 
     # enable opengl
-    # > 24.05
     hardware.graphics = {
       enable = true;
 
@@ -119,15 +118,6 @@ in
         nvidia-vaapi-driver
       ];
     };
-    # <= 24.05
-    # hardware.opengl = {
-    #   enable = true;
-    #   driSupport = true;
-
-    #   extraPackages = with pkgs; [
-    #     nvidia-vaapi-driver
-    #   ];
-    # };
 
     # nvidia config
     hardware.nvidia = {
