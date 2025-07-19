@@ -268,8 +268,7 @@
   };
 
   # kernel
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-server;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # kernel sysctls
   boot.kernel.sysctl = {

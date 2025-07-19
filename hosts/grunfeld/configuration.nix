@@ -174,12 +174,10 @@
   };
 
   # kernel
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   services.scx = {
     enable = true;
-    scheduler = "scx_bpfland";
+    scheduler = "scx_rustland"; # scx_bpfland
   };
 
   # kernel module packages
